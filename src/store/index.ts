@@ -1,16 +1,16 @@
-import { createStore, StoreOptions } from 'vuex'
+import { createStore } from 'vuex'
 
-const store: StoreOptions<unknown> = {
-  state () {
-    return {
-    }
+export default createStore({
+  state: {
+    token: null
   },
   mutations: {
+    token (state: any, data: any) {
+      state.token = data
+    }
   },
-  actions: {},
-  getters: {
+  actions: {
   },
-  modules: {},
-}
-
-export default createStore(store)
+  modules: {
+  }
+})

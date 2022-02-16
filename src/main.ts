@@ -1,16 +1,14 @@
 import { createApp } from 'vue'
-import App from '@/App.vue'
+import App from './App.vue'
+import './style/index.scss'
+import router from './router'
+import { getQueryToJson } from './utils/tools'
+import store from './store'
 
-import router from '@/router'
-import store from '@/store'
+console.log(getQueryToJson().__test__)
+if (process.env.VUE_APP_VCONSOLE || getQueryToJson().__test__) {
+  require('./utils/vconsole')
+}
 
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
-
-import '@/style/index.less'
-
-createApp(App)
-  .use(router)
-  .use(store)
-  .use(ElementPlus)
-  .mount('#app')
+createApp(App).use(store).use(router).mount('#app')
+// createApp(App).use(router).mount('#app')
