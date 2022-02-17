@@ -1,5 +1,4 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const px2rem = require('postcss-pxtorem')
 
 module.exports = {
   publicPath: '/',
@@ -12,17 +11,6 @@ module.exports = {
       }
     }
   },
-  css: {
-    loaderOptions: {
-      postcss: {
-        plugins: [px2rem({
-          rootValue: 32,
-          propList: ['*'],
-          exclude: /node_modules/i
-        })]
-      }
-    }
-  },
   configureWebpack: config => {
     config.optimization = {
       splitChunks: {
@@ -32,6 +20,11 @@ module.exports = {
             name: 'chunk-libs',
             test: /[\\/]node_modules[\\/]/,
             priority: -10
+          },
+          vue: {
+            name: 'vue',
+            test: /[\\/]node_modules[\\/]vue[\\/]/,
+            priority: 23
           },
           vconsole: {
             name: 'vconsole',

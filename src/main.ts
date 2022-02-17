@@ -1,14 +1,20 @@
-import { createApp } from 'vue'
+import Vue from 'vue'
 import App from './App.vue'
-import './style/index.scss'
 import router from './router'
-import { getQueryToJson } from './utils/tools'
 import store from './store'
+import './style/index.less'
+import Scroll from '@/components/Scroll.vue'
 
-console.log(getQueryToJson().__test__)
-if (process.env.VUE_APP_VCONSOLE || getQueryToJson().__test__) {
+if (process.env.VUE_APP_VCONSOLE) {
   require('./utils/vconsole')
 }
 
-createApp(App).use(store).use(router).mount('#app')
-// createApp(App).use(router).mount('#app')
+Vue.config.productionTip = false
+
+Vue.component('scroll', Scroll)
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')

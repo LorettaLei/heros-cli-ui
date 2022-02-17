@@ -4,15 +4,12 @@
 </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { Component, Vue } from 'vue-property-decorator'
 
-export default defineComponent({
-  setup () {
-    return { }
-  }
-})
+export default class Home extends Vue {
+}
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 button{
   display: block;
   width: 50%;

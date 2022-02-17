@@ -1,25 +1,34 @@
-import { ref, reactive } from 'vue'
+import { Component, Vue } from 'vue-property-decorator'
 
-export default function () {
-  const pager = reactive({
+@Component
+export default class TableList extends Vue {
+  pager = {
     pageNo: 1,
     pageSize: 20,
-    lastLength: 0,
-    query: (type?:number): void => {
-      console.log('请重新定义query函数')
-    }
-  })
-  const loader = reactive({
+    lastLength: 0
+  }
+
+  query (type?:number): void {
+    console.log('请重新定义query函数')
+  }
+
+  loader = {
     loading: false,
     loadAll: true,
     nodata: false,
     loadMore: () => {
-      if (loader.loading) { return }
-      if (pager.lastLength === pager.pageSize || pager.pageNo === 1) { pager.pageNo++; pager.query() }
+      if (this.loader.loading) { return }
+      if (this.pager.lastLength === this.pager.pageSize || this.pager.pageNo === 1) { this.pager.pageNo++; this.query() }
     }
-  })
-  const queryParam = reactive<any>({})
-  const listData = ref<any>([])
+  }
 
-  return { pager, loader, queryParam, listData }
+  listData = <any>[]
+
+  initPage () {
+    this.query(1)
+  }
+
+  created () {
+    this.initPage()
+  }
 }

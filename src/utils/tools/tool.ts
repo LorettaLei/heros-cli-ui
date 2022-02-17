@@ -50,6 +50,7 @@ interface Browser {
   isQQ: boolean
   isPC: boolean
   isWeibo: boolean
+  isHero: boolean
 }
 
 export function browserInfo (): Browser {
@@ -66,7 +67,8 @@ export function browserInfo (): Browser {
     isWeixin: /MicroMessenger/gi.test(UA),
     isQQ: /QQ/gi.test(UA),
     isPC: !isMobile,
-    isWeibo: /WeiBo/gi.test(UA)
+    isWeibo: /WeiBo/gi.test(UA),
+    isHero: /Hero/gi.test(UA)
   }
 }
 

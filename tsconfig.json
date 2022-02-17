@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
+    "removeComments": false,
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
@@ -10,7 +11,6 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "suppressImplicitAnyIndexErrors":true,
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
@@ -19,7 +19,8 @@
     "paths": {
       "@/*": [
         "src/*"
-      ]
+      ],
+      "tslib" : ["node_modules/tslib/tslib.d.ts"]
     },
     "lib": [
       "esnext",
