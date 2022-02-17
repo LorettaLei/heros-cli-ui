@@ -73,7 +73,3 @@ npm run eslint:fix
 + 接口文档
 + git地址
 + 测试环境地址
-
-### 风格备选
-https://panjiachen.github.io/vue-element-admin/
-http://blog.51weblove.com/344.html
