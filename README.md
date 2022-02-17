@@ -81,15 +81,6 @@ yarn lint
 npm run lint
 ```
 
-### 五、环境地址
-
-- 接口文档
-  http://47.74.235.101:29007/swagger-ui.html#/
-- git 地址
-  http://10.0.10.25/frontend/community-h5
-- 测试环境地址
-  http://47.74.235.101:8022/community/
-
 ## 关注点
 
 - 结构设计
