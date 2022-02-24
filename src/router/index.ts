@@ -3,26 +3,27 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/home'
   },
   {
     path: '/home',
     name: '首页',
     meta: {},
-    component: () => import('@/views/AppHome.vue'),
-  },
+    component: () => import('@/views/AppHome.vue')
+  }
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
+  routes
 })
 
 router.beforeEach((to, from, next) => {
   next()
 })
 
-router.afterEach(to => {
+router.afterEach((to:any) => {
+  console.log(to)
 })
 
 export default router
